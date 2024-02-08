@@ -1,15 +1,17 @@
-const { getAge, getUUID } = require("../plugins");
-const obj = { name: "jhonny", birthdate: "1990-03-22" };
+// const { getAge, getUUID } = require("../plugins");
+//
 
-const buildPersonal = ({ name, birthdate }) => {
-  return {
-    id: getUUID(),
-    name,
-    birthdate,
-    age: getAge(birthdate),
+const buildMakePerson = ({ getUUID, getAge }) => {
+  return ({ name, birthdate }) => {
+    return {
+      id: getUUID(),
+      name,
+      birthdate,
+      age: getAge(birthdate),
+    };
   };
 };
 
-const jhonnr = buildPersonal(obj);
-
-console.log(jhonnr);
+module.exports = {
+  buildMakePerson,
+};
