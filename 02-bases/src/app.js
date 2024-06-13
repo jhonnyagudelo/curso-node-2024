@@ -8,6 +8,7 @@
 // console.log(emailTemplate);
 //
 //
+import { buildLogger } from './plugins/logger.plugin'
 
 //Funcion factory
 // const { getUUID, getAge } = require("./plugins");
@@ -21,9 +22,16 @@
 
 // console.log(jhonny);
 
-const getPokemonById = require("./js-fundation/06-promesas");
+// const getPokemonById = require("./js-fundation/06-promesas");
+//
+// getPokemonById(2)
+//   .then((pokemon) => console.log({ pokemon }))
+//   .catch((err) => console.error(err))
+//   .finally(() => console.log("Finalmente"));
+//
+//
 
-getPokemonById(2)
-  .then((pokemon) => console.log({ pokemon }))
-  .catch((err) => console.log("Intente de nuevo"))
-  .finally(() => console.log("Finalmente"));
+const logger = buildLogger("app.js");
+
+logger.log("holi");
+logger.error("error en el holi");
